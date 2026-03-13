@@ -19,13 +19,13 @@ use Winter\Mall\Models\ShippingMethod;
 use Winter\Mall\Models\ShippingMethodRate;
 use Winter\Mall\Models\Tax;
 use Winter\Mall\Models\Variant;
-use Winter\Mall\Tests\PluginTestCase;
+use Winter\Mall\Tests\MallPluginTestCase;
 
-class TotalsCalculatorTest extends PluginTestCase
+class TotalsCalculatorTest extends MallPluginTestCase
 {
     protected $address;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 

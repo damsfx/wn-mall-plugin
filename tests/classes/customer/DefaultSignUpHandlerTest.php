@@ -2,9 +2,9 @@
 
 use Winter\Mall\Classes\Customer\DefaultSignUpHandler;
 use Winter\Mall\Models\GeneralSettings;
-use Winter\Mall\Tests\PluginTestCase;
+use Winter\Mall\Tests\MallPluginTestCase;
 
-class DefaultSignUpHandlerTest extends PluginTestCase
+class DefaultSignUpHandlerTest extends MallPluginTestCase
 {
     public function test_it_does_not_require_phone_by_default()
     {

@@ -45,7 +45,7 @@ class DatabaseSeeder extends Seeder
             'name' => 'Old price',
         ]);
         PriceCategory::extend(function () {
-            $this->setTable('winter_mall_price_categories');
+            $this->setTable('offline_mall_price_categories');
         }, true);
 
         Currency::extend(function () {
@@ -76,7 +76,7 @@ class DatabaseSeeder extends Seeder
             'rate'       => 1.02,
         ]);
         Currency::extend(function () {
-            $this->setTable('winter_mall_currencies');
+            $this->setTable('offline_mall_currencies');
             $this->rules['code'] = str_replace('offline_', 'winter_', $this->rules['code']);
         }, true);
 
