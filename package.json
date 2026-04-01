@@ -1,0 +1,40 @@
+{
+    "name": "wn-mall-plugin",
+    "version": "2.1.4",
+    "homepage": "https://github.com/wintercms/wn-mall-plugin#readme",
+    "description": "E-commerce solution for Winter CMS",
+    "keywords": [
+        "winter",
+        "winter cms",
+        "plugin",
+        "e-commerce",
+        "shop"
+    ],
+    "author": "Tobias Kündig <tobias@offline.ch> (https://offline.ch)",
+    "contributors": [
+        {
+            "name": "Winter CMS Maintainers",
+            "url": "https://wintercms.com"
+        }
+    ],
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/wintercms/wn-mall-plugin.git"
+    },
+    "bugs": {
+        "url": "https://github.com/wintercms/wn-mall-plugin/issues"
+    },
+    "directories": {
+        "doc": "docs",
+        "test": "tests"
+    },
+    "scripts": {
+        "docs:dev": "vuepress dev docs",
+        "docs:build": "vuepress build docs",
+        "docs:preview": "vuepress preview docs"
+    },
+    "devDependencies": {
+        "vuepress": "^1.9.10"
+    }
+}
