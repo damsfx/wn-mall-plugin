@@ -2,7 +2,6 @@
 
 namespace Winter\Mall\Classes\Registration;
 
-use Winter\Storm\Database\Relations\Relation;
 use Winter\Mall\Models\Category;
 use Winter\Mall\Models\CustomField;
 use Winter\Mall\Models\CustomFieldOption;
@@ -14,6 +13,7 @@ use Winter\Mall\Models\ServiceOption;
 use Winter\Mall\Models\ShippingMethod;
 use Winter\Mall\Models\ShippingMethodRate;
 use Winter\Mall\Models\Variant;
+use Winter\Storm\Database\Relations\Relation;
 
 trait BootRelations
 {

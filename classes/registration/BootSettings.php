@@ -7,6 +7,7 @@ use Winter\Mall\Models\FeedSettings;
 use Winter\Mall\Models\GeneralSettings;
 use Winter\Mall\Models\PaymentGatewaySettings;
 use Winter\Mall\Models\ReviewSettings;
+use Winter\Mall\Models\ShippingProvidersSettings;
 
 trait BootSettings
 {
@@ -102,6 +103,16 @@ trait BootSettings
                 'order'       => 40,
                 'permissions' => ['winter.mall.settings.manage_payment_methods'],
                 'keywords'    => 'shop store mall payment methods',
+            ],
+            'shipping_providers_settings' => [
+                'label'       => 'winter.mall::lang.common.shipping_providers',
+                'description' => 'winter.mall::lang.shipping_provider_settings.description',
+                'category'    => 'winter.mall::lang.general_settings.category_orders',
+                'icon'        => 'icon-boxes-packing',
+                'class'       => ShippingProvidersSettings::class,
+                'order'       => 40,
+                'permissions' => ['winter.mall.settings.manage_shipping_providers'],
+                'keywords'    => 'shop store mall payment gateways',
             ],
             'shipping_method_settings'  => [
                 'label'       => 'winter.mall::lang.common.shipping_methods',

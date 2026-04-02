@@ -133,7 +133,7 @@ class PaymentMethod extends Model
 
         return $provider->getSettings();
     }
-    
+
     public function priceForCart()
     {
         $cart    = Cart::byUser(Auth::getUser());

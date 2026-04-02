@@ -38,6 +38,9 @@ permissions:
     winter.mall.manage_order_states:
         tab: 'winter.mall::lang.plugin.name'
         label: 'winter.mall::lang.permissions.manage_order_states'
+    winter.mall.manage_shipping_providers:
+        tab: 'winter.mall::lang.plugin.name'
+        label: 'winter.mall::lang.permissions.manage_shipping_providers'
     winter.mall.manage_shipping_methods:
         tab: 'winter.mall::lang.plugin.name'
         label: 'winter.mall::lang.permissions.manage_shipping_methods'

@@ -4,12 +4,14 @@ use Closure;
 use Event;
 use Illuminate\Support\Facades\Session;
 use Model;
-use Winter\Storm\Database\Collection;
-use Winter\Storm\Database\Traits\Sortable;
-use Winter\Storm\Database\Traits\Validation;
-use Winter\Mall\Classes\Traits\PriceAccessors;
 use Rainlab\Location\Models\Country as WinterCountry;
 use System\Models\File;
+use Winter\Mall\Classes\Shippings\ShippingsManager;
+use Winter\Mall\Classes\Traits\PriceAccessors;
+use Winter\Storm\Database\Collection;
+use Winter\Storm\Database\Relations\HasMany;
+use Winter\Storm\Database\Traits\Sortable;
+use Winter\Storm\Database\Traits\Validation;
 
 class ShippingMethod extends Model
 {
@@ -41,6 +43,7 @@ class ShippingMethod extends Model
         'description',
         'guaranteed_delivery_days',
         'price_includes_tax',
+        'shipping_provider',
         'sort_order',
     ];
     public $morphMany = [
@@ -62,7 +65,7 @@ class ShippingMethod extends Model
     ];
     public $hasMany = [
         'carts' => Cart::class,
-        'rates' => ShippingMethodRate::class,
+        // 'rates' => ShippingMethodRate::class,
     ];
     public $attachOne = [
         'logo' => File::class,
@@ -87,6 +90,21 @@ class ShippingMethod extends Model
             'otherKey' => 'country_id',
         ],
     ];
+
+    //
+    // Methods defined relationships
+    //
+    
+    public function rates(): HasMany
+    {
+        $relation = $this->hasMany(ShippingMethodRate::class);
+
+        if ($this->isProviderDrived()) {
+            $this->setRelation('rates', collect());
+        }
+
+        return $relation;
+    }
 
     /**
      * This method can be used when no shipping is required
@@ -113,6 +131,27 @@ class ShippingMethod extends Model
     public static function getDefault(): self
     {
         return ShippingMethod::first();
+    }
+
+    /**
+     * Get options for shipping providers dropdown
+     *
+     * @return array
+     */
+    public function getShippingProviderOptions()
+    {
+        $shippings   = app(ShippingsManager::class);
+
+        $options = [
+            '' => trans('winter.mall::lang.shipping_provider.default')
+        ];
+
+        foreach ($shippings->getProviders() as $id => $class) {
+            $provider       = new $class();
+            $options[$id] = $provider->name();
+        }
+
+        return $options;
     }
 
     public function getPriceFormattedAttribute()
@@ -244,5 +283,10 @@ class ShippingMethod extends Model
         });
 
         return $base;
+    }
+    
+    public function isProviderDrived()
+    {
+        return $this->shipping_provider !== null;
     }
 }

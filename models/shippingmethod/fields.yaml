@@ -4,6 +4,10 @@ fields:
         oc.commentPosition: ''
         span: auto
         type: text
+    shipping_provider:
+        label: 'winter.mall::lang.shipping_provider.label'
+        span: right
+        type: dropdown
     guaranteed_delivery_days:
         label: 'winter.mall::lang.discounts.shipping_guaranteed_days_to_delivery'
         oc.commentPosition: ''

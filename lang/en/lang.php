@@ -213,6 +213,7 @@
         'inventory' => 'Inventory',
         'accessories' => 'Accessories',
         'shipping_methods' => 'Shipping methods',
+        'shipping_providers' => 'Delivery providers',
         'accessory' => 'Accessory',
         'custom_fields' => 'Custom fields',
         'variants' => 'Variants',
@@ -629,6 +630,13 @@
         'countries_comment' => 'If no country is selected this method is available worldwide.',
         'not_required_name' => 'No shipping required',
         'not_required_description' => 'The current cart does not require any shipping.',
+    ],
+    'shipping_provider' => [
+        'label' => 'Delivery provider',
+        'default' => 'Classic',
+    ],
+    'shipping_provider_settings' => [
+        'description' => 'Set up your delivery providers',
     ],
     'payment_status' => [
         'paid' => 'Paid',

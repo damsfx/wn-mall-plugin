@@ -23,6 +23,8 @@ use Winter\Mall\Classes\Payments\PaymentGateway;
 use Winter\Mall\Classes\Payments\PayPalRest;
 use Winter\Mall\Classes\Payments\PostFinance;
 use Winter\Mall\Classes\Payments\Stripe;
+use Winter\Mall\Classes\Shippings\DefaultShippingManager;
+use Winter\Mall\Classes\Shippings\ShippingsManager;
 use Winter\Mall\Classes\Utils\DefaultMoney;
 use Winter\Mall\Classes\Utils\Money;
 use Winter\Mall\Models\GeneralSettings;
@@ -48,6 +50,11 @@ trait BootServiceContainer
             $gateway->registerProvider(new PostFinance());
 
             return $gateway;
+        });
+        $this->app->singleton(ShippingsManager::class, function () {
+            $shippingManager = new DefaultShippingManager();
+
+            return $shippingManager;
         });
         $this->app->singleton(Hashids::class, function () {
             return new Hashids(config('app.key', 'oc-mall'), 8);
@@ -80,7 +87,6 @@ trait BootServiceContainer
                 return new Filebase();
             }
         });
-
         $this->registerDomPDF();
     }
 
