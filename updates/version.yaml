@@ -480,5 +480,10 @@
     - 'Fixed creation of options for the ‘checkboxlist’ property and `mall:seed-demo` command.'
     - 'Update PHP requirement to >=8.1'
 2.1.5:
+    - 'Only create carts once a product is added'
+    - rename_customer_group_id_column.php
+2.1.6:
+    - 'Add `customer_notes` in backend order detail (thanks to @skrezh)'
+2.1.7:
     - 'Add shipping providers management'
     - add_shipping_provider_to_shipping_methods_table.php
